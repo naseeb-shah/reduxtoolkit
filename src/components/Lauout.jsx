@@ -14,10 +14,10 @@ export const Layout = () => {
     <Text mr={10}>Orders & Returns</Text>
     <Text mr={10}>Hi,Jhon</Text>
     </Flex>
-    <Flex w={"100%"} borderWidth={1} p={15} alignItems={"baseline"}>
+    <Flex w={"100%"}  p={15} alignItems={"baseline"}>
       <Heading
-        borderWidth={1}
-        borderColor={"yellow"}
+      
+       
         textAlign={"left"}
         w={"25%"}
       >
@@ -26,8 +26,7 @@ export const Layout = () => {
       <Flex
         flexDir={"row"}
         w={"55%"}
-        borderWidth={1}
-        borderColor={"red"}
+       
         justifyContent={"space-between"}
         fontWeight={"600"}
       >
@@ -37,7 +36,7 @@ export const Layout = () => {
         <Text>New Stock</Text>
         <Text>Trending</Text>
       </Flex>
-      <Flex  w={"20%"}  alignItems={"center"}justifyContent={"flex-end"}  justifyItems={'flex-end'}  borderColor={'yellowgreen'}>
+      <Flex  w={"20%"}  alignItems={"center"}justifyContent={"flex-end"}  justifyItems={'flex-end'}  >
        
         
             <CiSearch size={25}  style={{marginRight:20}}/>
