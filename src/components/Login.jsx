@@ -121,7 +121,7 @@ export const LogIn = () => {
       </Box>
       <Text textAlign={"center"} mt={30} mb={30}>
         Don’t have an Account?{" "}
-        <span style={{marginLeft:3,color:'blue'}} onClick={() => navigate("/new-user")}>SIGN UP</span>
+        <span style={{marginLeft:3,color:'blue'}}git  onClick={() => navigate("/new-user")}>SIGN UP</span>
       </Text>
     </Box>
   );
