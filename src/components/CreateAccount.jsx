@@ -20,6 +20,19 @@ export const CreateAccount=()=>{
 
 
  const handle=async()=>{
+    if(!data.email.includes("@")){
+      
+        toast({
+          title: "Please valid Email",
+          position: "top",
+          description: "Check your email.",
+          status: "warning",
+          duration: 9000,
+          isClosable: true,
+        });
+        setData({...data,email:''})
+        return
+      }
     
     await postData('/user/createuser',data).then((e)=>{
 
@@ -63,7 +76,7 @@ export const CreateAccount=()=>{
             <Text >
                 Email
             </Text>
-         <Input display={'block'} name="email" placeholder='Enter' size='sm'  onChange={handleChange}/>
+         <Input display={'block'} name="email" type="email" value={data.email} placeholder='Enter' size='sm'  onChange={handleChange}/>
             </Box>
             <Box display={'flex'} justifyContent={'flex-start'} w={"75%"} flexDir={'column'} mb={5}>
             <Text >

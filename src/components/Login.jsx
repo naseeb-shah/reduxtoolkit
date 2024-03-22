@@ -24,6 +24,20 @@ export const LogIn = () => {
   };
   
   const handle = async () => {
+    if(!data.email.includes("@")){
+      
+      toast({
+        title: "Please valid Email",
+        position: "top",
+        description: "Check your email.",
+        status: "warning",
+        duration: 9000,
+        isClosable: true,
+      });
+      setData({...data,email:''})
+      return
+    }
+  
     
     await postData("/user/login", data)
       .then((e) => {
@@ -95,8 +109,10 @@ export const LogIn = () => {
           <Input
             display={"block"}
             name="email"
+            type="email"
             placeholder="Enter"
             size="sm"
+            value={data.email}
             onChange={handleChange}
           />
         </Box>

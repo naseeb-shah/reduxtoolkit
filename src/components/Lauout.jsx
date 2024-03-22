@@ -1,18 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 import { CiSearch } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import { useSelector } from "react-redux";
 
 export const Layout = () => {
+  const name=useSelector((e)=>e.user.user)
+  const navigate=useNavigate()
   return (
     <>
-    <Flex as="flex" position={'fixed'} top={0}right={0} opacity={.8}>
+    <Flex as="flex" position={'absolute'} top={0}right={0} opacity={.8}>
     <Text mr={10}>
         Help 
     </Text>
     <Text mr={10}>Orders & Returns</Text>
-    <Text mr={10}>Hi,Jhon</Text>
+    <Text mr={10}>{name?name.name:'Hi,Guest'}</Text>
     </Flex>
     <Flex w={"100%"}  p={15} alignItems={"baseline"}>
       <Heading
@@ -20,6 +23,7 @@ export const Layout = () => {
        
         textAlign={"left"}
         w={"25%"}
+        onClick={()=>navigate('/')}
       >
         ECOMMERCE
       </Heading>
