@@ -10,7 +10,7 @@ export const CreateAccount=()=>{
 
     const user= useSelector((data)=>data)
     const navigate=useNavigate()
-    console.log(user)
+    
     const dispatch= useDispatch()
  const [data,setData]= useState({})
  const handleChange=(e)=>{
@@ -20,7 +20,7 @@ export const CreateAccount=()=>{
 
 
  const handle=async()=>{
-    console.log(data)
+    
     await postData('/user/createuser',data).then((e)=>{
 
          
@@ -37,7 +37,15 @@ export const CreateAccount=()=>{
 
 
     }).catch((e)=>{
-        console.log(e,'form e blaock')
+        toast({
+            title: "Some Thing Went Wrong",
+            position: "top",
+            description: "Please try after some time.",
+            status: "warning",
+            duration: 9000,
+            isClosable: true,
+          });
+        
     })
  }
     return <Box  w={'30%'} borderRadius={20} borderColor={"#C1C1C1"} borderWidth={1} m={'auto'} mt={"50"} p={3} pb={35}>

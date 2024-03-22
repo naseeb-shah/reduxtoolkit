@@ -24,14 +24,15 @@ export const LogIn = () => {
   };
   
   const handle = async () => {
-    console.log(data);
+    
     await postData("/user/login", data)
       .then((e) => {
         dispatch(setUser(e));
+        localStorage.setItem('token',e.token)
         toast({
-          title: "Account created.",
+          title: "Log in successfully.",
           position: "top",
-          description: "We've created your account for you.",
+          description: "Welcome.",
           status: "success",
           duration: 9000,
           isClosable: true,
@@ -39,6 +40,14 @@ export const LogIn = () => {
         navigate("/interest");
       })
       .catch((e) => {
+        toast({
+          title: "Some Thing Went Wrong",
+          position: "top",
+          description: "Please check your email or Password.",
+          status: "warning",
+          duration: 9000,
+          isClosable: true,
+        });
         console.log(e, "form e blaock");
       });
   };

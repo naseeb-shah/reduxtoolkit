@@ -1,10 +1,15 @@
 import axios from "axios";
-const baseurl="http://localhost:3002"
-const getData = async (url) => {
+const baseurl="https://user-create-login.vercel.app"
+const token = localStorage.getItem('token');
+
+export const getData = async (url) => {
   try {
-    let data = await axios.get(`${baseurl}${url}`);
-    data = data.json();
-    console.log(data);
+    let data = await axios.get(`${baseurl}${url}`,
+  {  headers: {
+      Authorization: `Bearer ${token}`
+    }});
+    ;
+    
     return data.data;
   } catch (e) {
     return e;
@@ -13,12 +18,13 @@ const getData = async (url) => {
 
 export const postData = async (url, body) => {
     try {
-        console.log(body)
+        
       const response = await axios.post(`${baseurl}${url}`, body);
       const data = response.data; // Response data is accessed directly, no need for .json() with axios
-      console.log(data)
+      
       return data;
     } catch (error) {
-      return error;
+      
+      throw error;
     }
   };
