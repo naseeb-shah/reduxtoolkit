@@ -82,7 +82,7 @@ console.log(loading)
       {loading&& <Spinner size='xl' />}
 
 <Box display={'flex'} flexDir={'column'}>
-        {list.map((e) => (
+        {list?.map((e) => (
           <CheckBoxes key={e.name} value={e.name} />
         ))}
 
