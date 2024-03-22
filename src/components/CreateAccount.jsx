@@ -69,7 +69,8 @@ export const CreateAccount=()=>{
          </Box>
          <Text textAlign={'center'} mt={30} mb={30}>
          Have an Account?
-         <span onClick={()=>navigate('/login')}>LogIn</span>
+         <span  style={{marginLeft:3,color:'blue'}}onClick={()=>navigate('/login')}>
+            LogIn</span>
          </Text>
 
     </Box>
